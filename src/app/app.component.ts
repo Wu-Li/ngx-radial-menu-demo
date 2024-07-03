@@ -14,10 +14,8 @@ export class AppComponent {
   title = 'ngx-radial-menu-demo';
 
   show(event: MouseEvent) {
-    // console.log(this.menuElement);
     if (this.menuElement) {
       this.menuElement.show({x: event.clientX, y: event.clientY});
-      console.log(this.menuElement.coordinates);
     }
     event.preventDefault();
   }
