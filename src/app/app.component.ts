@@ -21,6 +21,11 @@ export class AppComponent {
     }
     event.preventDefault();
   }
+  hide() {
+    if (this.menuElement) {
+      this.menuElement.hide();
+    }
+  }
   config: Partial<MenuConfig> = {
     background: '#99AABBCC',
     diameter: 300,
@@ -49,7 +54,8 @@ export class AppComponent {
       }, {
         title: "subMenu",
         icon: {fontIcon: 'sort'}
-      }, {
+      },
+      {
         title: "click",
         icon: {fontIcon: 'reply'}
       }, {

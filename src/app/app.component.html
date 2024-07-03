@@ -69,7 +69,11 @@
     align-items: center;
     padding: 1rem;
     box-sizing: inherit;
-    position: relative;
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
   }
 
   .angular-logo {
@@ -179,6 +183,7 @@
 
 <main
   (contextmenu)="show($event)"
+  (click)="hide()"
   class="main">
   <div class="content">
     <div class="left-side">
