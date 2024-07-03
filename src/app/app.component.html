@@ -177,7 +177,9 @@
   }
 </style>
 
-<main class="main">
+<main
+  (contextmenu)="show($event)"
+  class="main">
   <div class="content">
     <div class="left-side">
       <svg
@@ -334,3 +336,6 @@
 
 
 <router-outlet />
+
+
+<ngx-radial-menu #menuElement [config]="config"></ngx-radial-menu>
