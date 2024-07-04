@@ -1,6 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import {NgxRadialMenuComponent,MenuConfig} from "../../../ngx-radial-menu/dist/ngx-radial-menu";
+import {NgxRadialMenuComponent, MenuConfig, Click} from "../../../ngx-radial-menu/dist/ngx-radial-menu";
 
 @Component({
   selector: 'app-root',
@@ -14,8 +14,10 @@ export class AppComponent {
   title = 'ngx-radial-menu-demo';
 
   show(event: MouseEvent) {
+    let tag = (event.target as HTMLElement).tagName;
+    // console.log('tag', tag);
     if (this.menuElement) {
-      this.menuElement.show({x: event.clientX, y: event.clientY});
+      this.menuElement.show({x: event.clientX, y: event.clientY}, {test:'test data!'}, [tag]);
     }
     event.preventDefault();
   }
@@ -25,7 +27,7 @@ export class AppComponent {
     }
   }
   config: Partial<MenuConfig> = {
-    background: '#99AABBCC',
+    background: '#005599',
     diameter: 300,
     menus: [
       {
@@ -34,13 +36,14 @@ export class AppComponent {
         href: "http://github.com",
         target: "_blank"
       }, {
-        title: "GitLab",
+        title: "Data Test",
         icon: {
           fontIcon: "star",
           color: '#4078c0'
         },
+        click: (event: MouseEvent, data: any) => console.log(data)
       }, {
-        title: "subMenu",
+        title: "DIV",
         icon: {fontIcon: "chevron_right"},
         menus: [{
           title: 'subMenu1',
@@ -50,11 +53,20 @@ export class AppComponent {
           icon: {fontIcon: 'file'}
         }]
       }, {
-        title: "subMenu",
-        icon: {fontIcon: 'sort'}
+        title: "MAIN",
+        icon: {fontIcon: 'sort'},
+        menus: [{
+          title: "GitHub",
+          icon: {fontIcon: "search"},
+          href: "http://github.com",
+          target: "_blank"
+        }, {
+          title: "clickMe!",
+          click: (event: MouseEvent, data: any) => console.log(data)
+        }]
       },
       {
-        title: "click",
+        title: "H1",
         icon: {fontIcon: 'reply'}
       }, {
         title: "hash-href",
