@@ -35,14 +35,16 @@ export class AppComponent {
         icon: {fontIcon: "search"},
         href: "http://github.com",
         target: "_blank"
-      }, {
+      },
+      {
         title: "Data Test",
         icon: {
           fontIcon: "star",
           color: '#4078c0'
         },
         click: (event: MouseEvent, data: any) => console.log(data)
-      }, {
+      },
+      {
         title: "DIV",
         icon: {fontIcon: "chevron_right"},
         menus: [{
@@ -52,31 +54,38 @@ export class AppComponent {
           title: 'subMenu2',
           icon: {fontIcon: 'file'}
         }]
-      }, {
+      },
+      {
         title: "MAIN",
         icon: {fontIcon: 'sort'},
-        menus: [{
-          title: "GitHub",
-          icon: {fontIcon: "search"},
-          href: "http://github.com",
-          target: "_blank"
-        }, {
-          title: "clickMe!",
-          click: (event: MouseEvent, data: any) => console.log(data)
-        }]
+        menus: [
+          {
+            title: "GitHub",
+            icon: {fontIcon: "search"},
+            href: "http://github.com",
+            target: "_blank"
+          },
+          {
+            title: "clickMe!",
+            click: (event: MouseEvent, data: any) => console.log(data)
+          }
+        ]
       },
       {
         title: "H1",
         icon: {fontIcon: 'reply'}
-      }, {
+      },
+      {
         title: "hash-href",
         href: "#someHash",
-      }, {
+      },
+      {
         title: "clickMe!",
         click: function () {
           alert('click event callback');
         }
-      }, {
+      },
+      {
         disabled: true,
         title: "disabled"
       }
